@@ -1,0 +1,95 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ControlPhotosUI : MonoBehaviour
+{
+
+    private RenderTextureCapture rtc;
+    private int index = 0;
+
+    [SerializeField] private GameObject photosUI;
+    [SerializeField] private Image currentPhoto;
+    [SerializeField] private GameObject cameraUI;
+    [SerializeField] private GameObject blur;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rtc = GetComponent<RenderTextureCapture>();
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E)) 
+        {
+            rtc.ExportPhoto("");
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if(photosUI.activeSelf)
+            {
+                DisableUIPhotos();
+            }
+            else
+            {
+                EnableUIPhotos();
+            }
+
+            cameraUI.SetActive(!photosUI.activeSelf);
+            blur.SetActive(photosUI.activeSelf);
+        }
+
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            NextPhoto();
+        }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            PreviousPhoto();
+        }
+    }
+
+
+    private void EnableUIPhotos()
+    {
+        photosUI.SetActive(true);
+        Debug.Log(rtc.sprites.Count);
+        currentPhoto.sprite = rtc.sprites[index];
+
+    }
+
+    private void DisableUIPhotos()
+    {
+        photosUI.SetActive(false);
+    }
+
+    public void NextPhoto()
+    {
+        
+        if (index < rtc.sprites.Count - 1)
+            index++;
+        else
+            index = 0;
+
+        Debug.Log(index);
+        
+        currentPhoto.sprite = rtc.sprites[index];
+    }
+
+    public void PreviousPhoto()
+    {
+        if (index > 0)
+            index--;
+        else
+            index = rtc.sprites.Count - 1;
+
+        Debug.Log(index);
+        currentPhoto.sprite = rtc.sprites[index];
+    }
+
+}
