@@ -14,6 +14,7 @@ public class ControlPhotosUI : MonoBehaviour
     [SerializeField] private GameObject cameraUI;
     [SerializeField] private GameObject blur;
 
+
     // Start is called before the first frame update
     void Start()
     {

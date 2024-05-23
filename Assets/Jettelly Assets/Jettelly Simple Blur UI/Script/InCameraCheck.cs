@@ -15,6 +15,10 @@ public class InCameraCheck : MonoBehaviour
 
     [SerializeField] private bool wrongObject = false;
 
+    [SerializeField] private HiddenObject objectDescription;
+    private bool zooming;
+    private bool destroyed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +28,9 @@ public class InCameraCheck : MonoBehaviour
         defaultColor = meshRenderer.material.color;
 
         objectMaterials = new List<Material>();
-        
+
+        zooming = false;
+        destroyed = false;
 
         foreach (Material mat in meshRenderer.materials)
         {
@@ -39,17 +45,18 @@ public class InCameraCheck : MonoBehaviour
         }
 
         if(wrongObject)
+        { 
+            meshRenderer.enabled = false;
             meshRenderer.materials = missingObjectArray;
+        }
 
     }
 
 
 
-    private void FixedUpdate()
+    private void Update()
     {
-
-            CheckIfInbounds();
-
+        CheckIfInbounds();
     }
 
     private void CheckIfInbounds()
@@ -58,18 +65,28 @@ public class InCameraCheck : MonoBehaviour
 
         if(wrongObject)
         {
-            if (GeometryUtility.TestPlanesAABB(cameraFrustum, col.bounds))
+            if ((!GeometryUtility.TestPlanesAABB(cameraFrustum, col.bounds) && zooming) || destroyed)
+            {
+                //meshRenderer.materials = objectMaterials.ToArray();
+                meshRenderer.enabled = false;
+                cam.gameObject.GetComponentInParent<Zoom>().zooming = false;
+            }
+            else if (GeometryUtility.TestPlanesAABB(cameraFrustum, col.bounds))
             {
                 //meshRenderer.materials = missingObjectAr
                 Debug.Log("zoom");
                 cam.gameObject.GetComponentInParent<Zoom>().zooming = true;
+
+                zooming = true;
+                meshRenderer.enabled = true;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    cam.gameObject.GetComponentInParent<Inventory>().AddObject(objectDescription);
+                    destroyed = true;
+                    Destroy(gameObject, 0.1f);
+                }
             }
-            else
-            {
-                //meshRenderer.materials = objectMaterials.ToArray();
-                
-                cam.gameObject.GetComponentInParent<Zoom>().zooming = false;
-            }
+  
         }
         
     }

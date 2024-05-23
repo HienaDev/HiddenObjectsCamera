@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 177521264}
   - component: {fileID: 177521263}
   m_Layer: 5
-  m_Name: Camera UI
+  m_Name: Zoom in Camera UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -550,7 +550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &217840946
 RectTransform:
   m_ObjectHideFlags: 0
@@ -926,6 +926,7 @@ GameObject:
   - component: {fileID: 330585553}
   - component: {fileID: 330585552}
   - component: {fileID: 330585554}
+  - component: {fileID: 330585555}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1144,6 +1145,11 @@ MonoBehaviour:
   captureTexture: {fileID: 8400000, guid: 8e0dd4a4ee3c04643b46b5f880fdcab2, type: 2}
   sprites: []
   image: {fileID: 1877120857}
+  saveToPc: 0
+  photoPolaroidPrefab: {fileID: 3427868008027977448, guid: 0f402ae4ec499174ca1a7d22b40045fb,
+    type: 3}
+  polaroidPrefabParent: {fileID: 1918454514}
+  newFolder: GrandmaGameObjects
 --- !u!114 &330585554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,6 +1165,25 @@ MonoBehaviour:
   zoomScale: 45
   howFastZoom: 1
   zooming: 0
+--- !u!114 &330585555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1cdf9b9ca6c894d97a1a49cdf19d17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  images:
+  - {fileID: 1285249310}
+  - {fileID: 404436184}
+  - {fileID: 1911199776}
+  - {fileID: 217840945}
+  - {fileID: 1858552447}
+  - {fileID: 395297535}
 --- !u!1 &395297535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &395297536
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1251,7 +1276,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &404436185
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1440,7 +1465,7 @@ GameObject:
   - component: {fileID: 481044504}
   - component: {fileID: 481044503}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1620,6 +1645,7 @@ MonoBehaviour:
   missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
     type: 2}
   wrongObject: 0
+  objectDescription: {fileID: 0}
 --- !u!1 &675923298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2164,6 +2190,7 @@ MonoBehaviour:
   missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
     type: 2}
   wrongObject: 0
+  objectDescription: {fileID: 0}
 --- !u!1 &968279445
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,6 +2522,7 @@ MonoBehaviour:
   missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
     type: 2}
   wrongObject: 0
+  objectDescription: {fileID: 0}
 --- !u!4 &1127315557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 339be127e2c443e47b9795b9cf323b35,
@@ -2517,6 +2545,7 @@ MonoBehaviour:
   missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
     type: 2}
   wrongObject: 0
+  objectDescription: {fileID: 0}
 --- !u!65 &1127315561
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2884,6 +2913,7 @@ MonoBehaviour:
   missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
     type: 2}
   wrongObject: 0
+  objectDescription: {fileID: 0}
 --- !u!4 &1232054932 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 755446098075022016, guid: 407efe835ddb074499c8fdd0fda64a53,
@@ -2905,7 +2935,8 @@ MonoBehaviour:
   cam: {fileID: 1749197361}
   missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
     type: 2}
-  wrongObject: 0
+  wrongObject: 1
+  objectDescription: {fileID: 11400000, guid: 4b3f2c7e84e21b54cb499afc40fd415a, type: 2}
 --- !u!4 &1245529412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1bf47272346065b4295cbc564ad1b6da,
@@ -3031,7 +3062,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1285249311
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3202,6 +3233,7 @@ MonoBehaviour:
   missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
     type: 2}
   wrongObject: 0
+  objectDescription: {fileID: 0}
 --- !u!1001 &1554571689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3453,6 +3485,7 @@ MonoBehaviour:
   missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
     type: 2}
   wrongObject: 0
+  objectDescription: {fileID: 0}
 --- !u!1001 &1635914549
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3863,7 +3896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1858552448
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4104,7 +4137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1911199777
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4175,7 +4208,7 @@ GameObject:
   - component: {fileID: 1918454512}
   - component: {fileID: 1918454511}
   m_Layer: 5
-  m_Name: Camera UI (1)
+  m_Name: Main Camera UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4385,7 +4418,8 @@ MonoBehaviour:
   cam: {fileID: 1749197361}
   missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
     type: 2}
-  wrongObject: 0
+  wrongObject: 1
+  objectDescription: {fileID: 11400000, guid: 40084f672d31a3349add440e5625379e, type: 2}
 --- !u!65 &2004556023
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4530,7 +4564,8 @@ MonoBehaviour:
   cam: {fileID: 1749197361}
   missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
     type: 2}
-  wrongObject: 1
+  wrongObject: 0
+  objectDescription: {fileID: 0}
 --- !u!65 &2064124881
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4574,6 +4609,7 @@ MonoBehaviour:
   missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
     type: 2}
   wrongObject: 0
+  objectDescription: {fileID: 0}
 --- !u!65 &2124818449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4627,7 +4663,7 @@ PrefabInstance:
     - target: {fileID: 755446098075022016, guid: 407efe835ddb074499c8fdd0fda64a53,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.8385073
+      value: 4.46
       objectReference: {fileID: 0}
     - target: {fileID: 755446098075022016, guid: 407efe835ddb074499c8fdd0fda64a53,
         type: 3}
@@ -4637,7 +4673,7 @@ PrefabInstance:
     - target: {fileID: 755446098075022016, guid: 407efe835ddb074499c8fdd0fda64a53,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.9488997
+      value: 3.64
       objectReference: {fileID: 0}
     - target: {fileID: 755446098075022016, guid: 407efe835ddb074499c8fdd0fda64a53,
         type: 3}
@@ -4788,7 +4824,8 @@ MonoBehaviour:
   cam: {fileID: 1749197361}
   missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
     type: 2}
-  wrongObject: 0
+  wrongObject: 1
+  objectDescription: {fileID: 11400000, guid: 443246958e9748540a0940eaacdb5470, type: 2}
 --- !u!65 &9139826542362013510
 BoxCollider:
   m_ObjectHideFlags: 0

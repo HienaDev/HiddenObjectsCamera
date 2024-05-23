@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 using System.Linq;
+using System.IO;
+using System;
 
 public class RenderTextureCapture : MonoBehaviour
 {
@@ -11,19 +13,41 @@ public class RenderTextureCapture : MonoBehaviour
     [SerializeField] private RenderTexture captureTexture;
     public List<Sprite> sprites = new List<Sprite>();
     [SerializeField] private GameObject image;
+    [HideInInspector] public bool saveToPc;
+    [SerializeField] private GameObject photoPolaroidPrefab;
+    [SerializeField] private Transform polaroidPrefabParent;
+
+    [SerializeField] private string newFolder = "GrandmaGameObjects";
 
     public Sprite ExportPhoto(string type)
     {
         byte[] bytes = toTexture2D(captureTexture).EncodeToPNG();
-        var dirPath = Application.persistentDataPath + "/ExportPhoto";
 
-        if (!System.IO.Directory.Exists(dirPath))
+
+        if (saveToPc)
         {
-            System.IO.Directory.CreateDirectory(dirPath);
-        }
-        System.IO.File.WriteAllBytes(dirPath + $"/{type}photo" + Random.Range(0, 1000000) + ".png", bytes);
-        Debug.Log(bytes.Length / 1024 + "Kb was saved as: " + dirPath);
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), newFolder);
 
+            if (!System.IO.Directory.Exists(path))
+            {
+                try
+                {
+                    System.IO.Directory.CreateDirectory(path);
+                }
+                catch (IOException ie)
+                {
+                    Console.WriteLine("IO Error: " + ie.Message);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("General Error: " + e.Message);
+                }
+            }
+
+
+            System.IO.File.WriteAllBytes(path + $"/{type}photo" + UnityEngine.Random.Range(0, 1000000) + ".png", bytes);
+            Debug.Log(bytes.Length / 1024 + "Kb was saved as: " + path);
+        }
         return sprites.Last();
     }
 
@@ -36,10 +60,12 @@ public class RenderTextureCapture : MonoBehaviour
         tex.Apply();
 
         sprites.Add(Sprite.Create(tex, rect, Vector2.zero));
+        GameObject polaroid = Instantiate(photoPolaroidPrefab, polaroidPrefabParent);
+        polaroid.GetComponent<Image>().sprite = sprites.Last();
         Debug.Log("sprite added");
         return tex;
     }
 
-    
+
 
 }
