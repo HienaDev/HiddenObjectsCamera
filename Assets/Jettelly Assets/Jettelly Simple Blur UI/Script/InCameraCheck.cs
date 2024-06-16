@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 
 public class InCameraCheck : MonoBehaviour
 {
@@ -37,18 +38,18 @@ public class InCameraCheck : MonoBehaviour
             objectMaterials.Add(mat);
         }
 
-        missingObjectArray = new Material[meshRenderer.materials.Length];
+        //missingObjectArray = new Material[meshRenderer.materials.Length];
 
-        for (int i = 0; i < meshRenderer.materials.Length; i++)
-        {
-            missingObjectArray[i] = missingObjectMaterial;
-        }
+        //for (int i = 0; i < meshRenderer.materials.Length; i++)
+        //{
+        //    missingObjectArray[i] = missingObjectMaterial;
+        //}
 
-        if(wrongObject)
-        { 
-            meshRenderer.enabled = false;
-            meshRenderer.materials = missingObjectArray;
-        }
+        //if(wrongObject)
+        //{ 
+        //    meshRenderer.enabled = false;
+        //    meshRenderer.materials = missingObjectArray;
+        //}
 
     }
 
@@ -73,18 +74,29 @@ public class InCameraCheck : MonoBehaviour
             }
             else if (GeometryUtility.TestPlanesAABB(cameraFrustum, col.bounds))
             {
-                //meshRenderer.materials = missingObjectAr
-                Debug.Log("zoom");
-                cam.gameObject.GetComponentInParent<Zoom>().zooming = true;
-
-                zooming = true;
-                meshRenderer.enabled = true;
-                if (Input.GetKeyDown(KeyCode.E))
+                RaycastHit hit;
+                if (Physics.Raycast(cam.transform.position, (transform.position - cam.transform.position ), out hit, Mathf.Infinity))
                 {
-                    cam.gameObject.GetComponentInParent<Inventory>().AddObject(objectDescription);
-                    destroyed = true;
-                    Destroy(gameObject, 0.1f);
+
+                    if (hit.transform == transform)
+                    {
+                        //meshRenderer.materials = missingObjectAr
+                        Debug.Log("zoom");
+                        cam.gameObject.GetComponentInParent<Zoom>().zooming = true;
+
+                        zooming = true;
+                        meshRenderer.enabled = true;
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            cam.gameObject.GetComponentInParent<Inventory>().AddObject(objectDescription);
+                            destroyed = true;
+                            Destroy(gameObject, 0.1f);
+                        }
+                    }
+
+                    
                 }
+                
             }
   
         }
