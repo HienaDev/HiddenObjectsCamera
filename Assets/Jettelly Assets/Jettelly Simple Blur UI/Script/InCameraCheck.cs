@@ -6,8 +6,9 @@ using Unity.Burst.CompilerServices;
 public class InCameraCheck : MonoBehaviour
 {
     [SerializeField] private Camera cam;
-    private MeshRenderer meshRenderer;
-    private Color defaultColor;
+    private Transform mainCamera;
+    private MeshRenderer[] meshRenderer;
+    private Material[] defaultMaterials;
     private Plane[] cameraFrustum;
     private Collider col;
     private List<Material> objectMaterials;
@@ -15,28 +16,43 @@ public class InCameraCheck : MonoBehaviour
     private Material[] missingObjectArray;
 
     [SerializeField] private bool wrongObject = false;
+    [SerializeField] private bool door = false;
 
     [SerializeField] private HiddenObject objectDescription;
     private bool zooming;
     private bool destroyed;
 
+    private Inventory inventory;
+
+    [SerializeField] private Transform nextCamLocation;
+
     // Start is called before the first frame update
     void Start()
     {
-        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer = GetComponentsInChildren<MeshRenderer>();
+
+        defaultMaterials = new Material[meshRenderer.Length];
+
+        inventory = FindObjectOfType<Inventory>();
+
+        mainCamera = Camera.main.transform;
+
         col = GetComponent<Collider>();
-            
-        defaultColor = meshRenderer.material.color;
+
+        for(int i = 0; i < meshRenderer.Length; i++)
+        {
+            defaultMaterials[i]= meshRenderer[i].material;
+        }
 
         objectMaterials = new List<Material>();
 
         zooming = false;
         destroyed = false;
 
-        foreach (Material mat in meshRenderer.materials)
-        {
-            objectMaterials.Add(mat);
-        }
+        //foreach (Material mat in meshRenderer.materials)
+        //{
+        //    objectMaterials.Add(mat);
+        //}
 
         //missingObjectArray = new Material[meshRenderer.materials.Length];
 
@@ -45,11 +61,17 @@ public class InCameraCheck : MonoBehaviour
         //    missingObjectArray[i] = missingObjectMaterial;
         //}
 
-        //if(wrongObject)
-        //{ 
-        //    meshRenderer.enabled = false;
-        //    meshRenderer.materials = missingObjectArray;
-        //}
+        if (wrongObject)
+        {
+
+            for (int i = 0; i < meshRenderer.Length; i++)
+            {
+                meshRenderer[i].material = missingObjectMaterial;
+                meshRenderer[i].enabled = false;
+            }
+        }
+
+
 
     }
 
@@ -64,42 +86,89 @@ public class InCameraCheck : MonoBehaviour
     {
         cameraFrustum = GeometryUtility.CalculateFrustumPlanes(cam);
 
-        if(wrongObject)
+
+        if ((!GeometryUtility.TestPlanesAABB(cameraFrustum, col.bounds) && zooming) || destroyed)
         {
-            if ((!GeometryUtility.TestPlanesAABB(cameraFrustum, col.bounds) && zooming) || destroyed)
+            //meshRenderer.materials = objectMaterials.ToArray();
+            if (wrongObject)
             {
-                //meshRenderer.materials = objectMaterials.ToArray();
-                meshRenderer.enabled = false;
-                cam.gameObject.GetComponentInParent<Zoom>().zooming = false;
+                for (int i = 0; i < meshRenderer.Length; i++)
+                {
+                    meshRenderer[i].enabled = false;
+                }
+                
             }
-            else if (GeometryUtility.TestPlanesAABB(cameraFrustum, col.bounds))
+            
+            
+        }
+        else if (GeometryUtility.TestPlanesAABB(cameraFrustum, col.bounds))
+        {
+            RaycastHit hit;
+
+            if (Physics.Raycast(cam.transform.position, (transform.position - cam.transform.position), out hit, Mathf.Infinity))
             {
-                RaycastHit hit;
-                if (Physics.Raycast(cam.transform.position, (transform.position - cam.transform.position ), out hit, Mathf.Infinity))
+
+                if (hit.transform == transform)
                 {
 
-                    if (hit.transform == transform)
+                    if (wrongObject)
+                    {
+                        for (int i = 0; i < meshRenderer.Length; i++)
+                        {
+                            meshRenderer[i].enabled = true;
+                        }
+
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            Debug.Log("tried to put");
+                            //foreach(HiddenObject hidden in inventory.GetInventoryList())
+                            //{
+                            //    Debug.Log(hidden.name);
+                            //}
+                            if (inventory.GetInventoryList().Contains(objectDescription))
+                            {
+                                for (int i = 0; i < meshRenderer.Length; i++)
+                                {
+                                    Debug.Log("put material");
+                                    meshRenderer[i].material = defaultMaterials[i];
+                                }
+                            }
+
+
+                        }
+                    }
+                    else if (door)
+                    {
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            mainCamera.position = nextCamLocation.position;
+                            mainCamera.rotation = nextCamLocation.rotation;
+                        }
+                    }
+                    else
                     {
                         //meshRenderer.materials = missingObjectAr
-                        Debug.Log("zoom");
+                        Debug.Log("zoom because of" + hit.transform.name);
                         cam.gameObject.GetComponentInParent<Zoom>().zooming = true;
 
                         zooming = true;
-                        meshRenderer.enabled = true;
                         if (Input.GetKeyDown(KeyCode.E))
                         {
                             cam.gameObject.GetComponentInParent<Inventory>().AddObject(objectDescription);
+                            cam.gameObject.GetComponentInParent<Zoom>().zooming = false;
+                            col.enabled = false;
                             destroyed = true;
                             Destroy(gameObject, 0.1f);
                         }
                     }
 
-                    
                 }
-                
+
             }
-  
+
         }
-        
+
+
     }
 }
+

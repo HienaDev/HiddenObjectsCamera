@@ -50,4 +50,6 @@ public class Inventory : MonoBehaviour
             imagesUI[i].sprite = hiddenObjects[i].uiImage;
         }
     }
+
+    public List<HiddenObject> GetInventoryList() => hiddenObjects;
 }
