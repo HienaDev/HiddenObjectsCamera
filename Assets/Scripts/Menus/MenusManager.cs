@@ -48,6 +48,8 @@ public class MenusManager : MonoBehaviour
         zoomInCameraCanvas.enabled  = false;
         inventoryCanvas.enabled     = false;
         mainMenuCanvas.enabled      = true;
+
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void ReturnGame()
@@ -57,6 +59,8 @@ public class MenusManager : MonoBehaviour
         zoomInCameraCanvas.enabled  = true;
         inventoryCanvas.enabled     = true;
         mainMenuCanvas.enabled      = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void ExitGame()
