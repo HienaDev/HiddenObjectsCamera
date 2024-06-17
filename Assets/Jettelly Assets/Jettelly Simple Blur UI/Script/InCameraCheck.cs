@@ -21,6 +21,7 @@ public class InCameraCheck : MonoBehaviour
     [SerializeField] private HiddenObject objectDescription;
     private bool zooming;
     private bool destroyed;
+    private bool completed;
 
     private Inventory inventory;
 
@@ -79,7 +80,8 @@ public class InCameraCheck : MonoBehaviour
 
     private void Update()
     {
-        CheckIfInbounds();
+        if(!completed)
+            CheckIfInbounds();
     }
 
     private void CheckIfInbounds()
@@ -87,7 +89,7 @@ public class InCameraCheck : MonoBehaviour
         cameraFrustum = GeometryUtility.CalculateFrustumPlanes(cam);
 
 
-        if ((!GeometryUtility.TestPlanesAABB(cameraFrustum, col.bounds) && zooming) || destroyed)
+        if ((!GeometryUtility.TestPlanesAABB(cameraFrustum, col.bounds)) || destroyed)
         {
             //meshRenderer.materials = objectMaterials.ToArray();
             if (wrongObject)
@@ -127,25 +129,20 @@ public class InCameraCheck : MonoBehaviour
                             //}
                             if (inventory.GetInventoryList().Contains(objectDescription))
                             {
+                                inventory.RemoveObject(objectDescription);
                                 for (int i = 0; i < meshRenderer.Length; i++)
                                 {
                                     Debug.Log("put material");
                                     meshRenderer[i].material = defaultMaterials[i];
                                 }
+
+                                completed = true;
                             }
 
 
                         }
                     }
-                    else if (door)
-                    {
-                        if (Input.GetKeyDown(KeyCode.E))
-                        {
-                            mainCamera.position = nextCamLocation.position;
-                            mainCamera.rotation = nextCamLocation.rotation;
-                        }
-                    }
-                    else
+                    else if (!door)
                     {
                         //meshRenderer.materials = missingObjectAr
                         Debug.Log("zoom because of" + hit.transform.name);
@@ -159,6 +156,14 @@ public class InCameraCheck : MonoBehaviour
                             col.enabled = false;
                             destroyed = true;
                             Destroy(gameObject, 0.1f);
+                        }
+                    }
+                    else if (door)
+                    {
+                        if (Input.GetKeyDown(KeyCode.E))
+                        {
+                            mainCamera.position = nextCamLocation.position;
+                            mainCamera.rotation = nextCamLocation.rotation;
                         }
                     }
 
