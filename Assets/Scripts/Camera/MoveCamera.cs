@@ -1,26 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Threading;
 using UnityEngine;
 
 public class MoveCamera : MonoBehaviour
 {
-
     [SerializeField] private float speed;
-    private Vector3 velocity;
-
-    private Rigidbody rb;
     [SerializeField] private float maxHeadUpAngle;
     [SerializeField] private float minHeadDownAngle;
 
-    // Start is called before the first frame update
+    private Vector3 velocity;
+    private Rigidbody rb;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         velocity = Vector3.zero;
@@ -33,7 +26,6 @@ public class MoveCamera : MonoBehaviour
 
 
         Vector3 rotation = transform.localEulerAngles;
-
 
         if (rotation.x < 180)
             rotation.x = Mathf.Min(rotation.x, maxHeadUpAngle);

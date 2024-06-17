@@ -1,16 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] private GameObject[] images;
 
     private List<HiddenObject> hiddenObjects;
-    [SerializeField] private GameObject[] images;
     private Image[] imagesUI;
 
-    // Start is called before the first frame update
     void Start()
     {
         hiddenObjects = new List<HiddenObject>();
@@ -22,8 +20,6 @@ public class Inventory : MonoBehaviour
             imagesUI[i] = images[i].GetComponent<Image>();
         }
     }
-
-
 
     public void AddObject(HiddenObject hiddenObject)
     {

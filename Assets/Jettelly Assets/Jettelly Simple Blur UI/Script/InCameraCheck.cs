@@ -1,7 +1,5 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
 
 public class InCameraCheck : MonoBehaviour
 {

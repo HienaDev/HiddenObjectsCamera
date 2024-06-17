@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 using System.Linq;
 using System.IO;
@@ -9,9 +7,7 @@ using System;
 
 public class RenderTextureCapture : MonoBehaviour
 {
-
     [SerializeField] private RenderTexture captureTexture;
-    public List<Sprite> sprites = new List<Sprite>();
     [SerializeField] private GameObject image;
     [HideInInspector] public bool saveToPc;
     [SerializeField] private GameObject photoPolaroidPrefab;
@@ -19,10 +15,11 @@ public class RenderTextureCapture : MonoBehaviour
 
     [SerializeField] private string newFolder = "GrandmaGameObjects";
 
+    public List<Sprite> sprites = new List<Sprite>();
+
     public Sprite ExportPhoto(string type)
     {
         byte[] bytes = toTexture2D(captureTexture).EncodeToPNG();
-
 
         if (saveToPc)
         {
@@ -48,6 +45,7 @@ public class RenderTextureCapture : MonoBehaviour
             System.IO.File.WriteAllBytes(path + $"/{type}photo" + UnityEngine.Random.Range(0, 1000000) + ".png", bytes);
             Debug.Log(bytes.Length / 1024 + "Kb was saved as: " + path);
         }
+
         return sprites.Last();
     }
 
@@ -65,7 +63,4 @@ public class RenderTextureCapture : MonoBehaviour
         Debug.Log("sprite added");
         return tex;
     }
-
-
-
 }

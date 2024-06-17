@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ControlPhotosUI : MonoBehaviour
 {
-
     private RenderTextureCapture rtc;
     private int index = 0;
 
@@ -14,15 +11,11 @@ public class ControlPhotosUI : MonoBehaviour
     [SerializeField] private GameObject cameraUI;
     [SerializeField] private GameObject blur;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         rtc = GetComponent<RenderTextureCapture>();
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E)) 
@@ -55,13 +48,11 @@ public class ControlPhotosUI : MonoBehaviour
         }
     }
 
-
     private void EnableUIPhotos()
     {
         photosUI.SetActive(true);
         Debug.Log(rtc.sprites.Count);
         currentPhoto.sprite = rtc.sprites[index];
-
     }
 
     private void DisableUIPhotos()
@@ -71,7 +62,6 @@ public class ControlPhotosUI : MonoBehaviour
 
     public void NextPhoto()
     {
-        
         if (index < rtc.sprites.Count - 1)
             index++;
         else
@@ -92,5 +82,4 @@ public class ControlPhotosUI : MonoBehaviour
         Debug.Log(index);
         currentPhoto.sprite = rtc.sprites[index];
     }
-
 }
