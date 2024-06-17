@@ -18,12 +18,14 @@ public class MoveCamera : MonoBehaviour
     {
         velocity = Vector3.zero;
 
-        //velocity.y = Input.GetAxis("Vertical") * speed;
-        //velocity.x = Input.GetAxis("Horizontal") * speed;
+        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxis("Horizontal");
 
-        transform.Rotate(new Vector3(Input.GetAxis("Vertical") * -1, 0f, 0f), Space.Self);
-        transform.Rotate(new Vector3(0f, Input.GetAxis("Horizontal"), 0f), Space.World);
+        float rotationX = verticalInput * speed * Time.deltaTime * -1;
+        float rotationY = horizontalInput * speed * Time.deltaTime;
 
+        transform.Rotate(new Vector3(rotationX, 0f, 0f), Space.Self);
+        transform.Rotate(new Vector3(0f, rotationY, 0f), Space.World);
 
         Vector3 rotation = transform.localEulerAngles;
 

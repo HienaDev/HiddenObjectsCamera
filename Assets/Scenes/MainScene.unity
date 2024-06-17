@@ -1866,7 +1866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed9daa474d45de4ab8b1667780fc36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 100
   maxHeadUpAngle: 70
   minHeadDownAngle: 290
 --- !u!54 &330585550
