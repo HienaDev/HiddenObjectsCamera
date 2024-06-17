@@ -622,6 +622,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 58ba735133646fd4bab29eaf8c68c7f7, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!65 &134241043
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1480,6 +1482,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 15fa0690e3a9ce542b525c2c1c39ae12, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!65 &289307484
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2293,6 +2297,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: b34cc6647c33dc64baec8c3898ddedd2, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!1 &481044502
 GameObject:
   m_ObjectHideFlags: 0
@@ -2942,6 +2948,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 0}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!1 &675923298
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,6 +3589,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 0}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!1 &968279445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3813,6 +3823,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 4b3f2c7e84e21b54cb499afc40fd415a, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!4 &994910719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b57564064679ce54186ea627bac158e6,
@@ -3940,6 +3952,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 4e8b48501be00c542b5a5f0728d6f859, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!65 &1070611734
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4021,6 +4035,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 15fa0690e3a9ce542b525c2c1c39ae12, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!23 &1115748986
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4245,6 +4261,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 0}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!4 &1127315557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 339be127e2c443e47b9795b9cf323b35,
@@ -4270,6 +4288,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 0}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!65 &1127315561
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4685,6 +4705,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 0}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!4 &1232054932 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 755446098075022016, guid: 407efe835ddb074499c8fdd0fda64a53,
@@ -4710,6 +4732,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 4b3f2c7e84e21b54cb499afc40fd415a, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!4 &1245529412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1bf47272346065b4295cbc564ad1b6da,
@@ -5047,6 +5071,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 4e8b48501be00c542b5a5f0728d6f859, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!65 &1334892056
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5488,6 +5514,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 1b4b96eb45cbb344d8c60e5da21379e8, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!23 &1426851560
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5594,6 +5622,8 @@ MonoBehaviour:
   door: 1
   objectDescription: {fileID: 0}
   nextCamLocation: {fileID: 1626649406}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!65 &1466910672
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5694,6 +5724,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 0}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!1001 &1554571689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5870,6 +5902,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: b34cc6647c33dc64baec8c3898ddedd2, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!23 &1564133372
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6078,6 +6112,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 0}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!1 &1626649405
 GameObject:
   m_ObjectHideFlags: 0
@@ -6717,6 +6753,8 @@ MonoBehaviour:
   door: 1
   objectDescription: {fileID: 0}
   nextCamLocation: {fileID: 606113539}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!1 &1789208929 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b57564064679ce54186ea627bac158e6,
@@ -6763,6 +6801,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 4b3f2c7e84e21b54cb499afc40fd415a, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!4 &1789208932 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b57564064679ce54186ea627bac158e6,
@@ -7441,6 +7481,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 4b3f2c7e84e21b54cb499afc40fd415a, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!1 &1935535987
 GameObject:
   m_ObjectHideFlags: 0
@@ -7582,6 +7624,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 58ba735133646fd4bab29eaf8c68c7f7, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!65 &1944538753
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7784,6 +7828,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 1b4b96eb45cbb344d8c60e5da21379e8, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!1 &2004556019 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1bf47272346065b4295cbc564ad1b6da,
@@ -7809,6 +7855,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 40084f672d31a3349add440e5625379e, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!65 &2004556023
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7963,6 +8011,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 0}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!65 &2064124881
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8150,6 +8200,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 0}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!65 &2124818449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8804,6 +8856,8 @@ MonoBehaviour:
   door: 0
   objectDescription: {fileID: 11400000, guid: 443246958e9748540a0940eaacdb5470, type: 2}
   nextCamLocation: {fileID: 0}
+  smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+    type: 3}
 --- !u!65 &9139826542362013510
 BoxCollider:
   m_ObjectHideFlags: 0

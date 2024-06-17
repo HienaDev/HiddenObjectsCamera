@@ -27,6 +27,8 @@ public class InCameraCheck : MonoBehaviour
 
     [SerializeField] private Transform nextCamLocation;
 
+    [SerializeField] private GameObject smokeParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -122,20 +124,16 @@ public class InCameraCheck : MonoBehaviour
 
                         if (Input.GetKeyDown(KeyCode.E))
                         {
-                            Debug.Log("tried to put");
-                            //foreach(HiddenObject hidden in inventory.GetInventoryList())
-                            //{
-                            //    Debug.Log(hidden.name);
-                            //}
+ 
+
                             if (inventory.GetInventoryList().Contains(objectDescription))
                             {
                                 inventory.RemoveObject(objectDescription);
                                 for (int i = 0; i < meshRenderer.Length; i++)
                                 {
-                                    Debug.Log("put material");
                                     meshRenderer[i].material = defaultMaterials[i];
                                 }
-
+                                Instantiate(smokeParticles, transform.position, Quaternion.identity);
                                 completed = true;
                             }
 
@@ -155,6 +153,7 @@ public class InCameraCheck : MonoBehaviour
                             cam.gameObject.GetComponentInParent<Zoom>().zooming = false;
                             col.enabled = false;
                             destroyed = true;
+                            Instantiate(smokeParticles, transform.position, Quaternion.identity);
                             Destroy(gameObject, 0.1f);
                         }
                     }
@@ -164,6 +163,7 @@ public class InCameraCheck : MonoBehaviour
                         {
                             mainCamera.position = nextCamLocation.position;
                             mainCamera.rotation = nextCamLocation.rotation;
+
                         }
                     }
 

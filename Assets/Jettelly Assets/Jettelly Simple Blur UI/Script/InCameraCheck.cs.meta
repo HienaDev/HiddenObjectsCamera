@@ -7,6 +7,10 @@ MonoImporter:
   - cam: {instanceID: 0}
   - missingObjectMaterial: {fileID: 2100000, guid: 34f0c031719193b478f43409f6d663f9,
       type: 2}
+  - objectDescription: {instanceID: 0}
+  - nextCamLocation: {instanceID: 0}
+  - smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
