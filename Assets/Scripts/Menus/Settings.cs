@@ -49,7 +49,7 @@ public class Settings : MonoBehaviour
         _resolutionDropdown.RefreshShownValue();
 
 
-        //_sensitivitySlider.value = _playerMovement.GetSensitivity();
+        _sensitivitySlider.value = _cameraMovement.GetSpeed();
     }
 
     public void SetQuality(int qualityIndex)
@@ -71,7 +71,7 @@ public class Settings : MonoBehaviour
 
     public void SetSensitive(float sensitivity)
     {
-        //_cameraMovement.SetSpeed(sensitivity);
+        _cameraMovement.SetSpeed(sensitivity);
     }
 
     public void SetVolume(float volume)

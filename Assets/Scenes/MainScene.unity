@@ -1752,7 +1752,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 100
-  m_WholeNumbers: 0
+  m_WholeNumbers: 1
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1760,7 +1760,7 @@ MonoBehaviour:
       - m_Target: {fileID: 376639531}
         m_TargetAssemblyTypeName: Settings, Assembly-CSharp
         m_MethodName: SetVolume
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2825,7 +2825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bed9daa474d45de4ab8b1667780fc36a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
+  speed: 10
   maxHeadUpAngle: 70
   minHeadDownAngle: 290
 --- !u!54 &330585550
@@ -3288,7 +3288,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resolutionDropdown: {fileID: 159117985}
   _sensitivitySlider: {fileID: 1731600363}
-  _cameraMovement: {fileID: 0}
+  _cameraMovement: {fileID: 330585549}
 --- !u!114 &376639532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3306,7 +3306,7 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 159117985}
   fullscreenToggle: {fileID: 876170958}
   qualityDropdown: {fileID: 375820675}
-  sliderSpeed: 2
+  sliderSpeed: 5
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   selectedColor: {r: 0.7647059, g: 0.6039216, b: 0.41960785, a: 1}
 --- !u!114 &376639533
@@ -6421,7 +6421,7 @@ MonoBehaviour:
       - m_Target: {fileID: 376639531}
         m_TargetAssemblyTypeName: Settings, Assembly-CSharp
         m_MethodName: SetFullscreen
-        m_Mode: 6
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11977,17 +11977,17 @@ MonoBehaviour:
   m_FillRect: {fileID: 899586516}
   m_HandleRect: {fileID: 1740504577}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 1
   m_MaxValue: 100
-  m_WholeNumbers: 0
-  m_Value: 0
+  m_WholeNumbers: 1
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 376639531}
         m_TargetAssemblyTypeName: Settings, Assembly-CSharp
         m_MethodName: SetSensitive
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

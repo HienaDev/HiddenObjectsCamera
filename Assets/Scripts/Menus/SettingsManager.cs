@@ -102,11 +102,11 @@ public class SettingsManager : MonoBehaviour
             Slider selectedSlider = currentSelected.GetComponent<Slider>();
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
-                selectedSlider.value = Mathf.Lerp(selectedSlider.value, selectedSlider.value - 0.1f, sliderSpeed * Time.deltaTime);
+                selectedSlider.value = Mathf.Lerp(selectedSlider.value, selectedSlider.value - sliderSpeed, sliderSpeed * Time.deltaTime);
             }
             else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
-                selectedSlider.value = Mathf.Lerp(selectedSlider.value, selectedSlider.value + 0.1f, sliderSpeed * Time.deltaTime);
+                selectedSlider.value = Mathf.Lerp(selectedSlider.value, selectedSlider.value + sliderSpeed, sliderSpeed * Time.deltaTime);
             }
         }
         else if (currentSelected == resolutionDropdown.gameObject || currentSelected == qualityDropdown.gameObject)

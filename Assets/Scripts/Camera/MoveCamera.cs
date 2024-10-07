@@ -21,8 +21,8 @@ public class MoveCamera : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
 
-        float rotationX = verticalInput * speed * Time.deltaTime * -1;
-        float rotationY = horizontalInput * speed * Time.deltaTime;
+        float rotationX = verticalInput * (speed * 10) * Time.deltaTime * -1;
+        float rotationY = horizontalInput * (speed * 10) * Time.deltaTime;
 
         transform.Rotate(new Vector3(rotationX, 0f, 0f), Space.Self);
         transform.Rotate(new Vector3(0f, rotationY, 0f), Space.World);
@@ -37,5 +37,15 @@ public class MoveCamera : MonoBehaviour
         transform.eulerAngles = rotation;
 
         rb.velocity = velocity;
+    }
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
     }
 }
