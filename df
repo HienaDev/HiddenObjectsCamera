@@ -1,0 +1,191 @@
+[33mcommit d642a04011f9944bf01d720d1c83cda03777d4ec[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Rafael José <rafaeldavidjose.dev@gmail.com>
+Date:   Mon Oct 7 22:03:54 2024 +0100
+
+    Enhance camera control and update settings UI components
+
+[33mcommit 966cfa2a1bb9e122e29832c7947127ed3947687d[m
+Author: Rafael José <rafaeldavidjose.dev@gmail.com>
+Date:   Sun Oct 6 03:04:51 2024 +0100
+
+    Add settings menu functionality and UI components
+
+[33mcommit da3718377b3fa8680dd83959eb409e8ad4c7c79d[m
+Author: Rafael José <ra.david@hotmail.com>
+Date:   Thu Oct 3 15:45:03 2024 +0100
+
+    Add settings UI
+
+[33mcommit d90e01e020688df0272e9a518a90d728d6fc6a5d[m
+Author: Rafael José <ra.david@hotmail.com>
+Date:   Thu Oct 3 14:45:11 2024 +0100
+
+    Add play button effect
+
+[33mcommit b2aa160871a7a4250f8583ad22bbc3eef2e6cf23[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Thu Sep 26 16:18:15 2024 +0100
+
+    Fix merge
+
+[33mcommit bbd1d8810c7663763006ea909bc68e298cc3ee3c[m
+Merge: 77547d7 c4d8bda
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Thu Sep 26 16:15:05 2024 +0100
+
+    Merge branch 'tmp'
+
+[33mcommit c4d8bdab5d6363babc97cb89d8243172e032c08b[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Thu Sep 26 16:12:41 2024 +0100
+
+    Add temp file to delete
+
+[33mcommit fa1d257de4633d04b417e2c88ce5e850ccbfd308[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Thu Sep 26 16:10:17 2024 +0100
+
+    Fix scene and go back on commit
+
+[33mcommit 77547d7e07f32b429ae85f57d915b0e705a76e03[m
+Merge: 4e050f2 329cb3e
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Thu Sep 26 15:26:13 2024 +0100
+
+    Save particle prefab
+
+[33mcommit 4e050f2e408551b0d8f9c6a3ce18228cc5341c6b[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Thu Sep 26 15:23:52 2024 +0100
+
+    Particles
+
+[33mcommit 329cb3e308dbcfdddcfd0637ccf339e760ecac54[m
+Author: Rafael José <ra.david@hotmail.com>
+Date:   Mon Jun 17 17:32:41 2024 +0100
+
+    Update camera speed
+
+[33mcommit 0df0d2a922fd7896afc1f2df41bedd2a77f713d0[m
+Author: Rafael José <ra.david@hotmail.com>
+Date:   Mon Jun 17 17:25:56 2024 +0100
+
+    Update project settings and menus
+
+[33mcommit 4b67f053d3bcc96bb5312b3077eae154938f56e8[m
+Author: Rafael José <ra.david@hotmail.com>
+Date:   Mon Jun 17 16:16:34 2024 +0100
+
+    Organize main scene
+
+[33mcommit b789028333009cd578dec38fb39e167afa2ad039[m
+Author: Rafael José <ra.david@hotmail.com>
+Date:   Mon Jun 17 16:06:42 2024 +0100
+
+    Fix zoom
+
+[33mcommit aeb827b7f3921f2dd61be09872c3556d635acff3[m
+Author: Rafael José <ra.david@hotmail.com>
+Date:   Mon Jun 17 15:33:52 2024 +0100
+
+    Remove unused Unity scene and script files
+
+[33mcommit d2dc3e6af916f82780cc5c6c0abb0488f9e8d382[m
+Author: unknown <henriquepupet@gmail.com>
+Date:   Mon Jun 17 14:47:19 2024 +0100
+
+    Add frames
+
+[33mcommit 7cacf1d482dd0b5a3510c79b57d07e207ad50b2e[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Mon Jun 17 13:05:10 2024 +0100
+
+    Add smoke particles
+
+[33mcommit 1e43fd9071941be6da55cc86074f57c1190bf08a[m
+Merge: 83c294d 2c82f07
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Mon Jun 17 12:51:15 2024 +0100
+
+    Merge branch 'master' of https://github.com/HienaDev/HiddenObjectsCamera
+
+[33mcommit 83c294dcfb577931699bc0b84f690407fb660db5[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Mon Jun 17 12:51:03 2024 +0100
+
+    Add objets to scenes
+
+[33mcommit 2c82f07f4eb04ac353c3bfd739e5f602f891db0d[m
+Author: unknown <henriquepupet@gmail.com>
+Date:   Mon Jun 17 12:41:48 2024 +0100
+
+    Add new assets for the bedroom
+
+[33mcommit 50a1e4858a80b5021e26dfbf15ea92907ba428f9[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Mon Jun 17 00:58:22 2024 +0100
+
+    Add swap between rooms
+
+[33mcommit e3a0802562df780df07a5e8c3135b35d207c03f8[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Sun Jun 16 23:09:18 2024 +0100
+
+    Add new rooms
+
+[33mcommit 7a3e02b330aa628dafe219476039f21a6f089ed3[m
+Merge: 00cdb53 7036203
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Sun Jun 16 22:25:46 2024 +0100
+
+    Merge branch 'master' of https://github.com/HienaDev/HiddenObjectsCamera
+
+[33mcommit 00cdb5304ba433eb8b8485e48dbbcb6c87ac39d2[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Sun Jun 16 22:25:36 2024 +0100
+
+    Add ducks to rodrigo scene
+
+[33mcommit 7036203f45136eb8a8effd41242e702c4f2fed5b[m
+Author: Rafael José <ra.david@hotmail.com>
+Date:   Sun Jun 16 21:42:33 2024 +0100
+
+    Add simple menu
+
+[33mcommit 152439a2c56c4089771f9b69986829ce4770f23f[m
+Author: Rodrigo <rodrigogomes091997@gmail.com>
+Date:   Sat Jun 15 12:27:47 2024 +0100
+
+    Added model with new house compartments
+    
+    Changed some objects around
+
+[33mcommit 850eb9a88f09e5b98b6ed8306a4c4c8682601f18[m
+Author: Rodrigo <rodrigogomes091997@gmail.com>
+Date:   Sat Jun 15 10:56:33 2024 +0100
+
+    Added new scene for new assets
+
+[33mcommit 19ac304d2c945b353a623776d7ff88fd4ffffdee[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Thu May 23 16:12:57 2024 +0100
+
+    Add polaroid photo when taking pictures
+
+[33mcommit 6b44e6d987c02b778ed7c4a3b395ef66297f8362[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Thu May 23 15:20:51 2024 +0100
+
+    Add hidden objects
+
+[33mcommit 98b03d6d6174ea01041d3a8f408f60581273bb4b[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Wed May 8 11:29:12 2024 +0100
+
+    Add door
+
+[33mcommit b7643dc8d2656acbe5ec1d5ecbfe1b80aec0475c[m
+Author: HienaDev <ant.rodrigues1999@gmail.com>
+Date:   Wed May 8 11:24:11 2024 +0100
+
+    First commit
