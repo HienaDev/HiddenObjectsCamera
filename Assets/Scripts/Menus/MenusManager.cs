@@ -49,17 +49,23 @@ public class MenusManager : MonoBehaviour
 
     private void EnsureSelection()
     {
-        if (EventSystem.current.currentSelectedGameObject == null && mainMenuCanvas.enabled)
+        EventSystem.current.SetSelectedGameObject(null);
+        
+        EventSystem.current.SetSelectedGameObject(playButton.gameObject);
+
+        Debug.Log("Play Button foi selecionado sem cliques!");
+    }
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus && mainMenuCanvas.enabled)
         {
-            EventSystem.current.SetSelectedGameObject(playButton.gameObject);
+            EnsureSelection();
         }
     }
 
-
     private void Update()
     {
-        EnsureSelection();
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (settingsCanvas.enabled)
@@ -154,7 +160,8 @@ public class MenusManager : MonoBehaviour
         inventoryCanvas.enabled = false;
         mainMenuCanvas.enabled = true;
         settingsCanvas.enabled = false;
-        Cursor.lockState = CursorLockMode.None;
+
+        EnsureSelection();
     }
 
     private void ReturnGame()
@@ -165,7 +172,6 @@ public class MenusManager : MonoBehaviour
         inventoryCanvas.enabled = true;
         mainMenuCanvas.enabled = false;
         settingsCanvas.enabled = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void ShowSettingsMenu()
@@ -174,6 +180,7 @@ public class MenusManager : MonoBehaviour
         settingsCanvas.enabled = true;
 
         settingsManager.gameObject.SetActive(true);
+        settingsManager.enabled = true;
         settingsManager.SelectFirstElement();
     }
 
@@ -182,11 +189,10 @@ public class MenusManager : MonoBehaviour
         settingsCanvas.enabled = false;
         mainMenuCanvas.enabled = true;
 
+        settingsManager.enabled = false;
         settingsManager.gameObject.SetActive(false);
 
-        this.enabled = true;
-
-        EventSystem.current.SetSelectedGameObject(playButton.gameObject);
+        EnsureSelection();
     }
 
     private void DisableButtons()
