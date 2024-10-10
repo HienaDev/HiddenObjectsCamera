@@ -30,6 +30,8 @@ public class InCameraCheck : MonoBehaviour
     [SerializeField] private Transform nextCamLocation;
 
     [SerializeField] private GameObject smokeParticles;
+    [SerializeField] private GameObject itemParticles;
+    private GameObject itemParticlesClone;
 
     [Header("ANIMATION"), SerializeField] private float animationDuration = 10f;
     [SerializeField] private float maxTransparency = 0.5f;
@@ -38,8 +40,14 @@ public class InCameraCheck : MonoBehaviour
 
     private bool coroutineRunning = false;
 
+    [SerializeField] private float popDuration = 2f;
+    
+
     void Start()
     {
+
+        itemParticlesClone = Instantiate(itemParticles, transform.position, Quaternion.identity);
+
         meshRenderer = GetComponentsInChildren<MeshRenderer>();
 
         defaultMaterials = new Material[meshRenderer.Length];
@@ -150,7 +158,20 @@ public class InCameraCheck : MonoBehaviour
                                 {
                                     meshRenderer[i].material = defaultMaterials[i];
                                 }
+
                                 Instantiate(smokeParticles, transform.position, Quaternion.identity);
+
+                                if (coroutineRunning)
+                                {
+                                    Debug.Log("coroutineRunning on leave bounds: " + coroutineRunning);
+                                    StopCoroutine(coroutine);
+                                    coroutineRunning = false;
+                                }
+
+                                Destroy(itemParticlesClone);
+
+                                StartCoroutine(Popped());
+
                                 completed = true;
                             }
                         }
@@ -168,6 +189,7 @@ public class InCameraCheck : MonoBehaviour
                             col.enabled = false;
                             destroyed = true;
                             Instantiate(smokeParticles, transform.position, Quaternion.identity);
+                            Destroy(itemParticlesClone);
                             Destroy(gameObject, 0.1f);
                         }
                     }
@@ -224,5 +246,22 @@ public class InCameraCheck : MonoBehaviour
 
 
         Debug.Log("stop coroutine");
+    }
+
+    private IEnumerator Popped()
+    {
+        Debug.Log("start popped");
+        float lerpValue = 0;
+        Vector3 scale = Vector3.zero;
+        Vector3 finalScale = transform.localScale;
+
+        while (lerpValue <= 1)
+        {
+            lerpValue += Time.deltaTime / popDuration;
+            transform.localScale = Vector3.Lerp(scale, finalScale, lerpValue);
+            Debug.Log(gameObject.name + " local scale: " + transform.localScale);
+            Debug.Log("lerp: " + Vector3.Lerp(scale, finalScale, lerpValue));
+            yield return null;
+        }
     }
 }

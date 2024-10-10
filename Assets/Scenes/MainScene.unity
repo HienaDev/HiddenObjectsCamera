@@ -1119,8 +1119,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!65 &134241043
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2073,7 +2077,7 @@ PrefabInstance:
     - target: {fileID: 5429218634072926140, guid: 446512acad22cea4e885fb400af7917b,
         type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6551325201887270704, guid: 446512acad22cea4e885fb400af7917b,
         type: 3}
@@ -2172,10 +2176,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1984216275}
-    - targetCorrespondingSourceObject: {fileID: -313453381805140764, guid: 446512acad22cea4e885fb400af7917b,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1984216280}
     - targetCorrespondingSourceObject: {fileID: 7946816503691524730, guid: 446512acad22cea4e885fb400af7917b,
         type: 3}
       insertIndex: -1
@@ -2320,8 +2320,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!65 &289307484
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3952,8 +3956,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!1 &478372005
 GameObject:
   m_ObjectHideFlags: 0
@@ -5225,8 +5233,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!1 &675893061
 GameObject:
   m_ObjectHideFlags: 0
@@ -7103,8 +7115,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!1 &960283587
 GameObject:
   m_ObjectHideFlags: 0
@@ -7569,8 +7585,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!4 &994910719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b57564064679ce54186ea627bac158e6,
@@ -7980,8 +8000,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!65 &1070611734
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8065,8 +8089,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!23 &1115748986
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8293,8 +8321,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!4 &1127315557 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 339be127e2c443e47b9795b9cf323b35,
@@ -8322,8 +8354,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!65 &1127315561
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8876,8 +8912,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!4 &1245529412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1bf47272346065b4295cbc564ad1b6da,
@@ -9427,8 +9467,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!65 &1334892056
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10251,8 +10295,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!23 &1426851560
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10330,8 +10378,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 1626649406}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!65 &1466910672
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10590,8 +10642,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!1 &1525586696
 GameObject:
   m_ObjectHideFlags: 0
@@ -10935,8 +10991,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!23 &1564133372
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11222,8 +11282,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!1 &1626649405
 GameObject:
   m_ObjectHideFlags: 0
@@ -11856,74 +11920,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
---- !u!1001 &1726686553
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
-        type: 3}
-      propertyPath: m_Name
-      value: Particles
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070941821365046856, guid: 596199de40304a349a72bfc0941503f0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 23.91051
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070941821365046856, guid: 596199de40304a349a72bfc0941503f0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.583956
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070941821365046856, guid: 596199de40304a349a72bfc0941503f0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 15.740959
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070941821365046856, guid: 596199de40304a349a72bfc0941503f0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070941821365046856, guid: 596199de40304a349a72bfc0941503f0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000021855694
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070941821365046856, guid: 596199de40304a349a72bfc0941503f0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070941821365046856, guid: 596199de40304a349a72bfc0941503f0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070941821365046856, guid: 596199de40304a349a72bfc0941503f0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070941821365046856, guid: 596199de40304a349a72bfc0941503f0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7070941821365046856, guid: 596199de40304a349a72bfc0941503f0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 596199de40304a349a72bfc0941503f0, type: 3}
 --- !u!1 &1731600362
 GameObject:
   m_ObjectHideFlags: 0
@@ -12818,8 +12814,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 606113539}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!4 &1784500530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9d45b593d14a9174180ea73b8d8709c6,
@@ -12874,8 +12874,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!4 &1789208932 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b57564064679ce54186ea627bac158e6,
@@ -13664,8 +13668,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!65 &1944538753
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13771,29 +13779,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
---- !u!95 &1984216280
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984216271}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3bf7024be7bef324bb8ab9fb67ba3bd5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!1 &2004556019 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1bf47272346065b4295cbc564ad1b6da,
@@ -13821,8 +13812,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!65 &2004556023
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14191,8 +14186,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!65 &2064124881
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14247,8 +14246,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!65 &2124818449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14934,8 +14937,12 @@ MonoBehaviour:
   nextCamLocation: {fileID: 0}
   smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
     type: 3}
+  itemParticles: {fileID: 658158954429216876, guid: 596199de40304a349a72bfc0941503f0,
+    type: 3}
   animationDuration: 10
   maxTransparency: 0.35
+  initialDelayDuration: 3
+  popDuration: 2
 --- !u!65 &9139826542362013510
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14975,4 +14982,3 @@ SceneRoots:
   - {fileID: 257219825}
   - {fileID: 1378195788}
   - {fileID: 792313085}
-  - {fileID: 1726686553}
