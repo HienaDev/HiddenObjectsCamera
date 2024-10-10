@@ -1,5 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
+using System.Runtime.CompilerServices;
+using System.Linq.Expressions;
 
 public class InCameraCheck : MonoBehaviour
 {
@@ -27,6 +30,13 @@ public class InCameraCheck : MonoBehaviour
     [SerializeField] private Transform nextCamLocation;
 
     [SerializeField] private GameObject smokeParticles;
+
+    [Header("ANIMATION"), SerializeField] private float animationDuration = 10f;
+    [SerializeField] private float maxTransparency = 0.5f;
+    [SerializeField] private float initialDelayDuration = 3f;
+    private Coroutine coroutine = null;
+
+    private bool coroutineRunning = false;
 
     void Start()
     {
@@ -59,6 +69,8 @@ public class InCameraCheck : MonoBehaviour
                 meshRenderer[i].enabled = false;
             }
         }
+
+
     }
 
     private void Update()
@@ -80,6 +92,13 @@ public class InCameraCheck : MonoBehaviour
                 for (int i = 0; i < meshRenderer.Length; i++)
                 {
                     meshRenderer[i].enabled = false;
+                }
+
+                if (coroutineRunning)
+                {
+                    Debug.Log("coroutineRunning on leave bounds: " + coroutineRunning); 
+                    StopCoroutine(coroutine);
+                    coroutineRunning = false;
                 }
             }
 
@@ -106,6 +125,20 @@ public class InCameraCheck : MonoBehaviour
                         for (int i = 0; i < meshRenderer.Length; i++)
                         {
                             meshRenderer[i].enabled = true;
+                        }
+
+                        if(!coroutineRunning)
+                        {
+                            for (int i = 0; i < meshRenderer.Length; i++)
+                            {
+                                meshRenderer[i].material.color =
+                                new Color(meshRenderer[i].material.color.r, meshRenderer[i].material.color.g, meshRenderer[i].material.color.b, 0f);
+
+                            }
+
+                            Debug.Log("coroutineRunning on enter bounds: " + coroutineRunning);
+
+                            coroutine = StartCoroutine(TransparencyAnimation());
                         }
 
                         if (Input.GetKeyDown(KeyCode.E))
@@ -163,5 +196,33 @@ public class InCameraCheck : MonoBehaviour
                 zooming = false;
             }
         }
+    }
+
+    private IEnumerator TransparencyAnimation()
+    {
+
+        Debug.Log("start coroutine");
+
+        coroutineRunning = true;
+
+        yield return new WaitForSeconds(initialDelayDuration);
+
+        float lerpValue = 0;
+
+        while (lerpValue <= maxTransparency)
+        {
+            lerpValue += Time.deltaTime / animationDuration * maxTransparency;
+            for (int i = 0; i < meshRenderer.Length; i++)
+            {
+                meshRenderer[i].material.color = 
+                    new Color(meshRenderer[i].material.color.r, meshRenderer[i].material.color.g, meshRenderer[i].material.color.b, lerpValue);
+
+            }
+              yield return null;
+        }
+
+
+
+        Debug.Log("stop coroutine");
     }
 }

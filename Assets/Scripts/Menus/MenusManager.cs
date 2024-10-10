@@ -53,7 +53,7 @@ public class MenusManager : MonoBehaviour
         
         EventSystem.current.SetSelectedGameObject(playButton.gameObject);
 
-        Debug.Log("Play Button foi selecionado sem cliques!");
+        //Debug.Log("Play Button foi selecionado sem cliques!");
     }
 
     private void OnApplicationFocus(bool hasFocus)
