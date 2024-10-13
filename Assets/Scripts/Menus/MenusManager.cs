@@ -161,6 +161,9 @@ public class MenusManager : MonoBehaviour
         mainMenuCanvas.enabled = true;
         settingsCanvas.enabled = false;
 
+        settingsManager.enabled = false;
+        settingsManager.gameObject.SetActive(false);
+    
         EnsureSelection();
     }
 
