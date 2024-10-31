@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f212a7e29573f394ca077c4336f7c83a, type: 3}
-  m_Name: Monitor
+  m_Name: Lamp
   m_EditorClassIdentifier: 
-  objectName: Monitor
-  uiImage: {fileID: 21300000, guid: 8e62180c01dcb8946992d618c71b5c88, type: 3}
+  objectName: Lamp
+  uiImage: {fileID: 21300000, guid: 828c8d9e0aa0e054e94e96bcfe746fe3, type: 3}

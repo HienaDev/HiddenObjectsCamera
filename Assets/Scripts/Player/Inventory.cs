@@ -9,6 +9,9 @@ public class Inventory : MonoBehaviour
     private List<HiddenObject> hiddenObjects;
     private Image[] imagesUI;
 
+    [SerializeField] private int maxSizeInventory = 6;
+    public int MaxSizeInventory { get { return maxSizeInventory; } }
+
     void Start()
     {
         hiddenObjects = new List<HiddenObject>();
@@ -23,8 +26,12 @@ public class Inventory : MonoBehaviour
 
     public void AddObject(HiddenObject hiddenObject)
     {
-        hiddenObjects.Add(hiddenObject);
-        UpdateInventory();
+        if(!IsInventoryFull())
+        {
+            hiddenObjects.Add(hiddenObject);
+            UpdateInventory();
+        }
+
     } 
 
     public void RemoveObject(HiddenObject hiddenObject)
@@ -48,4 +55,6 @@ public class Inventory : MonoBehaviour
     }
 
     public List<HiddenObject> GetInventoryList() => hiddenObjects;
+
+    public bool IsInventoryFull() => hiddenObjects.Count >= maxSizeInventory;
 }

@@ -8,7 +8,7 @@ public class InCameraCheck : MonoBehaviour
 {
     [SerializeField] private Camera cam;
     private Transform mainCamera;
-    private MeshRenderer[] meshRenderer;
+    private Renderer[] meshRenderer;
     private Material[] defaultMaterials;
     private Plane[] cameraFrustum;
     private Collider col;
@@ -41,14 +41,14 @@ public class InCameraCheck : MonoBehaviour
     private bool coroutineRunning = false;
 
     [SerializeField] private float popDuration = 2f;
-    
+
 
     void Start()
     {
 
         itemParticlesClone = Instantiate(itemParticles, transform.position, Quaternion.identity);
 
-        meshRenderer = GetComponentsInChildren<MeshRenderer>();
+        meshRenderer = GetComponentsInChildren<Renderer>();
 
         defaultMaterials = new Material[meshRenderer.Length];
 
@@ -182,7 +182,7 @@ public class InCameraCheck : MonoBehaviour
                         cam.gameObject.GetComponentInParent<Zoom>().zooming = true;
                         zooming = true;
 
-                        if (Input.GetKeyDown(KeyCode.E))
+                        if (Input.GetKeyDown(KeyCode.E) && !inventory.IsInventoryFull())
                         {
                             cam.gameObject.GetComponentInParent<Inventory>().AddObject(objectDescription);
                             cam.gameObject.GetComponentInParent<Zoom>().zooming = false;
