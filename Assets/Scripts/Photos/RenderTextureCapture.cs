@@ -9,7 +9,7 @@ public class RenderTextureCapture : MonoBehaviour
 {
     [SerializeField] private RenderTexture captureTexture;
     [SerializeField] private GameObject image;
-    [HideInInspector] public bool saveToPc;
+    [SerializeField] private bool saveToPc;
     [SerializeField] private GameObject photoPolaroidPrefab;
     [SerializeField] private Transform polaroidPrefabParent;
 

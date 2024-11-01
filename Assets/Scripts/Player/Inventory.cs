@@ -12,9 +12,14 @@ public class Inventory : MonoBehaviour
     [SerializeField] private int maxSizeInventory = 6;
     public int MaxSizeInventory { get { return maxSizeInventory; } }
 
+    [SerializeField] private HiddenObject[] hiddenObjectsAroundTheHouse;
+    private List<HiddenObject> foundObjects;
+
+    [SerializeField] private GameObject winScreen;
     void Start()
     {
         hiddenObjects = new List<HiddenObject>();
+        foundObjects = new List<HiddenObject>();
 
         imagesUI = new Image[images.Length];
 
@@ -37,6 +42,7 @@ public class Inventory : MonoBehaviour
     public void RemoveObject(HiddenObject hiddenObject)
     {
         hiddenObjects.Remove(hiddenObject);
+        foundObjects.Add(hiddenObject);
         UpdateInventory();
     }
 
@@ -51,6 +57,11 @@ public class Inventory : MonoBehaviour
         {
             images[i].SetActive(true);
             imagesUI[i].sprite = hiddenObjects[i].uiImage;
+        }
+
+        if(hiddenObjectsAroundTheHouse.Length == foundObjects.Count)
+        {
+            winScreen.SetActive(true);
         }
     }
 

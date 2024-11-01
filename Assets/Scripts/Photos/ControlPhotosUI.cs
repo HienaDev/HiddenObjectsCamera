@@ -13,7 +13,7 @@ public class ControlPhotosUI : MonoBehaviour
 
     void Start()
     {
-        rtc = GetComponent<RenderTextureCapture>();
+        rtc = FindAnyObjectByType<RenderTextureCapture>();
     }
 
     void Update()
@@ -38,11 +38,11 @@ public class ControlPhotosUI : MonoBehaviour
             blur.SetActive(photosUI.activeSelf);
         }
 
-        if(Input.GetKeyDown(KeyCode.G))
+        if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             NextPhoto();
         }
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             PreviousPhoto();
         }
