@@ -42,6 +42,9 @@ public class InCameraCheck : MonoBehaviour
 
     [SerializeField] private float popDuration = 2f;
 
+    [SerializeField] private TakePhotos takePhotoScript;
+    private float photoCooldown;
+    private float justTookPhoto;
 
     void Start()
     {
@@ -53,14 +56,17 @@ public class InCameraCheck : MonoBehaviour
         defaultMaterials = new Material[meshRenderer.Length];
 
         inventory = FindObjectOfType<Inventory>();
+        takePhotoScript = FindObjectOfType<TakePhotos>();
+        photoCooldown = takePhotoScript.PhotoCooldown;
+        justTookPhoto = Time.time;
 
         mainCamera = Camera.main.transform;
 
         col = GetComponent<Collider>();
 
-        for(int i = 0; i < meshRenderer.Length; i++)
+        for (int i = 0; i < meshRenderer.Length; i++)
         {
-            defaultMaterials[i]= meshRenderer[i].material;
+            defaultMaterials[i] = meshRenderer[i].material;
         }
 
         objectMaterials = new List<Material>();
@@ -104,7 +110,6 @@ public class InCameraCheck : MonoBehaviour
 
                 if (coroutineRunning)
                 {
-                    Debug.Log("coroutineRunning on leave bounds: " + coroutineRunning); 
                     StopCoroutine(coroutine);
                     coroutineRunning = false;
                 }
@@ -135,7 +140,7 @@ public class InCameraCheck : MonoBehaviour
                             meshRenderer[i].enabled = true;
                         }
 
-                        if(!coroutineRunning)
+                        if (!coroutineRunning)
                         {
                             for (int i = 0; i < meshRenderer.Length; i++)
                             {
@@ -144,13 +149,13 @@ public class InCameraCheck : MonoBehaviour
 
                             }
 
-                            Debug.Log("coroutineRunning on enter bounds: " + coroutineRunning);
 
                             coroutine = StartCoroutine(TransparencyAnimation());
                         }
 
-                        if (Input.GetKeyDown(KeyCode.E))
+                        if (Input.GetKeyDown(KeyCode.E) && Time.time - justTookPhoto > photoCooldown)
                         {
+                            justTookPhoto = Time.time;
                             if (inventory.GetInventoryList().Contains(objectDescription))
                             {
                                 inventory.RemoveObject(objectDescription);
@@ -163,7 +168,6 @@ public class InCameraCheck : MonoBehaviour
 
                                 if (coroutineRunning)
                                 {
-                                    Debug.Log("coroutineRunning on leave bounds: " + coroutineRunning);
                                     StopCoroutine(coroutine);
                                     coroutineRunning = false;
                                 }
@@ -178,12 +182,12 @@ public class InCameraCheck : MonoBehaviour
                     }
                     else if (!door)
                     {
-                        Debug.Log("zoom because of" + hit.transform.name);
                         cam.gameObject.GetComponentInParent<Zoom>().zooming = true;
                         zooming = true;
 
-                        if (Input.GetKeyDown(KeyCode.E) && !inventory.IsInventoryFull())
+                        if (Input.GetKeyDown(KeyCode.E) && !inventory.IsInventoryFull() && Time.time - justTookPhoto > photoCooldown)
                         {
+                            justTookPhoto = Time.time;
                             cam.gameObject.GetComponentInParent<Inventory>().AddObject(objectDescription);
                             cam.gameObject.GetComponentInParent<Zoom>().zooming = false;
                             col.enabled = false;
@@ -195,8 +199,9 @@ public class InCameraCheck : MonoBehaviour
                     }
                     else if (door)
                     {
-                        if (Input.GetKeyDown(KeyCode.E))
+                        if (Input.GetKeyDown(KeyCode.E) && Time.time - justTookPhoto > photoCooldown)
                         {
+                            justTookPhoto = Time.time;
                             mainCamera.position = nextCamLocation.position;
                             mainCamera.rotation = nextCamLocation.rotation;
                         }
@@ -218,12 +223,13 @@ public class InCameraCheck : MonoBehaviour
                 zooming = false;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.E) && Time.time - justTookPhoto > photoCooldown)
+            justTookPhoto = Time.time;
     }
 
     private IEnumerator TransparencyAnimation()
     {
-
-        Debug.Log("start coroutine");
 
         coroutineRunning = true;
 
@@ -236,21 +242,17 @@ public class InCameraCheck : MonoBehaviour
             lerpValue += Time.deltaTime / animationDuration * maxTransparency;
             for (int i = 0; i < meshRenderer.Length; i++)
             {
-                meshRenderer[i].material.color = 
+                meshRenderer[i].material.color =
                     new Color(meshRenderer[i].material.color.r, meshRenderer[i].material.color.g, meshRenderer[i].material.color.b, lerpValue);
 
             }
-              yield return null;
+            yield return null;
         }
 
-
-
-        Debug.Log("stop coroutine");
     }
 
     private IEnumerator Popped()
     {
-        Debug.Log("start popped");
         float lerpValue = 0;
         Vector3 scale = Vector3.zero;
         Vector3 finalScale = transform.localScale;
@@ -259,8 +261,6 @@ public class InCameraCheck : MonoBehaviour
         {
             lerpValue += Time.deltaTime / popDuration;
             transform.localScale = Vector3.Lerp(scale, finalScale, lerpValue);
-            Debug.Log(gameObject.name + " local scale: " + transform.localScale);
-            Debug.Log("lerp: " + Vector3.Lerp(scale, finalScale, lerpValue));
             yield return null;
         }
     }

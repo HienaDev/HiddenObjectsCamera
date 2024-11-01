@@ -34,6 +34,8 @@ public class MoveCamera : MonoBehaviour
         else
             rotation.x = Mathf.Max(rotation.x, minHeadDownAngle);
 
+        rotation.z = 0f;
+
         transform.eulerAngles = rotation;
 
         rb.velocity = velocity;

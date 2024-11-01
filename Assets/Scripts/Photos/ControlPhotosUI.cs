@@ -13,30 +13,12 @@ public class ControlPhotosUI : MonoBehaviour
 
     void Start()
     {
-        rtc = FindAnyObjectByType<RenderTextureCapture>();
+        rtc = FindObjectOfType<RenderTextureCapture>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) 
-        {
-            rtc.ExportPhoto("");
-        }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if(photosUI.activeSelf)
-            {
-                DisableUIPhotos();
-            }
-            else
-            {
-                EnableUIPhotos();
-            }
-
-            cameraUI.SetActive(!photosUI.activeSelf);
-            blur.SetActive(photosUI.activeSelf);
-        }
 
         if(Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {

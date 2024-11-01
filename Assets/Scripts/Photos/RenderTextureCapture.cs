@@ -17,36 +17,14 @@ public class RenderTextureCapture : MonoBehaviour
 
     public List<Sprite> sprites = new List<Sprite>();
 
-    public Sprite ExportPhoto(string type)
+
+
+
+    public void ExportPhoto(string type)
     {
-        byte[] bytes = toTexture2D(captureTexture).EncodeToPNG();
+        
+       toTexture2D(captureTexture);
 
-        if (saveToPc)
-        {
-            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), newFolder);
-
-            if (!System.IO.Directory.Exists(path))
-            {
-                try
-                {
-                    System.IO.Directory.CreateDirectory(path);
-                }
-                catch (IOException ie)
-                {
-                    Console.WriteLine("IO Error: " + ie.Message);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("General Error: " + e.Message);
-                }
-            }
-
-
-            System.IO.File.WriteAllBytes(path + $"/{type}photo" + UnityEngine.Random.Range(0, 1000000) + ".png", bytes);
-            Debug.Log(bytes.Length / 1024 + "Kb was saved as: " + path);
-        }
-
-        return sprites.Last();
     }
 
     private Texture2D toTexture2D(RenderTexture rTex)
