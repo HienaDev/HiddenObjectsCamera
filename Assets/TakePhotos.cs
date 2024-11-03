@@ -8,6 +8,8 @@ public class TakePhotos : MonoBehaviour
     [SerializeField] private float photoCooldown = 1f;
     public float PhotoCooldown { get { return photoCooldown; } }
     private float justTookPhoto;
+
+    [SerializeField] private AudioSource cameraPictureSound;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class TakePhotos : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)) && Time.time - justTookPhoto > photoCooldown)
         {
             justTookPhoto = Time.time;
+            cameraPictureSound.pitch = Random.Range(0.9f, 1.1f);
+            cameraPictureSound.Play();
             rtc.ExportPhoto("");
         }
     }
