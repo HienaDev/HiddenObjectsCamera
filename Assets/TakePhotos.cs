@@ -18,7 +18,7 @@ public class TakePhotos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && Time.time - justTookPhoto > photoCooldown)
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)) && Time.time - justTookPhoto > photoCooldown)
         {
             justTookPhoto = Time.time;
             rtc.ExportPhoto("");

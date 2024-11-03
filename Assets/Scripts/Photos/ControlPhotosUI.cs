@@ -16,6 +16,11 @@ public class ControlPhotosUI : MonoBehaviour
         rtc = FindObjectOfType<RenderTextureCapture>();
     }
 
+    private void OnEnable()
+    {
+        currentPhoto.sprite = rtc.sprites[index];
+    }
+
     void Update()
     {
 

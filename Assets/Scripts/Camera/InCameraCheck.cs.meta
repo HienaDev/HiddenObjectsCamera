@@ -11,6 +11,12 @@ MonoImporter:
   - nextCamLocation: {instanceID: 0}
   - smokeParticles: {fileID: 5010204592150934022, guid: f3f09b677fdcbe04caffb30bd030e9a1,
       type: 3}
+  - itemParticles: {instanceID: 0}
+  - takePhotoScript: {instanceID: 0}
+  - placeSound: {fileID: 1295286989223606827, guid: e7058de27da380a48a6c7010183112fb,
+      type: 3}
+  - collectSound: {fileID: 1340541813567594298, guid: f41aae16bb07dab43b72aab8764279df,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

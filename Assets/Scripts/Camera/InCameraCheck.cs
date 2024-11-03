@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Runtime.CompilerServices;
 using System.Linq.Expressions;
+using Unity.VisualScripting;
 
 public class InCameraCheck : MonoBehaviour
 {
@@ -45,6 +46,9 @@ public class InCameraCheck : MonoBehaviour
     [SerializeField] private TakePhotos takePhotoScript;
     private float photoCooldown;
     private float justTookPhoto;
+
+    [SerializeField] private GameObject placeSound;
+    [SerializeField] private GameObject collectSound;
 
     void Start()
     {
@@ -153,7 +157,7 @@ public class InCameraCheck : MonoBehaviour
                             coroutine = StartCoroutine(TransparencyAnimation());
                         }
 
-                        if (Input.GetKeyDown(KeyCode.E) && Time.time - justTookPhoto > photoCooldown)
+                        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)) && Time.time - justTookPhoto > photoCooldown)
                         {
                             justTookPhoto = Time.time;
                             if (inventory.GetInventoryList().Contains(objectDescription))
@@ -165,6 +169,8 @@ public class InCameraCheck : MonoBehaviour
                                 }
 
                                 Instantiate(smokeParticles, transform.position, Quaternion.identity);
+                                GameObject sound = Instantiate(collectSound, transform.position, Quaternion.identity);
+                                sound.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
 
                                 if (coroutineRunning)
                                 {
@@ -185,7 +191,7 @@ public class InCameraCheck : MonoBehaviour
                         cam.gameObject.GetComponentInParent<Zoom>().zooming = true;
                         zooming = true;
 
-                        if (Input.GetKeyDown(KeyCode.E) && !inventory.IsInventoryFull() && Time.time - justTookPhoto > photoCooldown)
+                        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)) && !inventory.IsInventoryFull() && Time.time - justTookPhoto > photoCooldown)
                         {
                             justTookPhoto = Time.time;
                             cam.gameObject.GetComponentInParent<Inventory>().AddObject(objectDescription);
@@ -193,13 +199,15 @@ public class InCameraCheck : MonoBehaviour
                             col.enabled = false;
                             destroyed = true;
                             Instantiate(smokeParticles, transform.position, Quaternion.identity);
+                            GameObject sound = Instantiate(placeSound, transform.position, Quaternion.identity);
+                            sound.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
                             Destroy(itemParticlesClone);
                             Destroy(gameObject, 0.1f);
                         }
                     }
                     else if (door)
                     {
-                        if (Input.GetKeyDown(KeyCode.E) && Time.time - justTookPhoto > photoCooldown)
+                        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)) && Time.time - justTookPhoto > photoCooldown)
                         {
                             justTookPhoto = Time.time;
                             mainCamera.position = nextCamLocation.position;
@@ -224,7 +232,7 @@ public class InCameraCheck : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && Time.time - justTookPhoto > photoCooldown)
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)) && Time.time - justTookPhoto > photoCooldown)
             justTookPhoto = Time.time;
     }
 

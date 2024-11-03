@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,12 +17,17 @@ public class Inventory : MonoBehaviour
     private List<HiddenObject> foundObjects;
 
     [SerializeField] private GameObject winScreen;
+
+    [SerializeField] private TextMeshProUGUI objectsFoundText;
     void Start()
     {
+        
         hiddenObjects = new List<HiddenObject>();
         foundObjects = new List<HiddenObject>();
 
         imagesUI = new Image[images.Length];
+
+        objectsFoundText.text = $"OBJETOS ENCONTRADOS {foundObjects.Count} / {hiddenObjectsAroundTheHouse.Length}"; 
 
         for (int i = 0; i < images.Length; i++)
         {
@@ -63,6 +69,8 @@ public class Inventory : MonoBehaviour
         {
             winScreen.SetActive(true);
         }
+
+        objectsFoundText.text = $"OBJETOS ENCONTRADOS {foundObjects.Count} / {hiddenObjectsAroundTheHouse.Length}";
     }
 
     public List<HiddenObject> GetInventoryList() => hiddenObjects;
