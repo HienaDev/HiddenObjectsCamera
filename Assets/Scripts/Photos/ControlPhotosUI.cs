@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ControlPhotosUI : MonoBehaviour
@@ -18,6 +19,7 @@ public class ControlPhotosUI : MonoBehaviour
 
     private void OnEnable()
     {
+        rtc = FindObjectOfType<RenderTextureCapture>();
         currentPhoto.sprite = rtc.sprites[index];
     }
 
@@ -32,6 +34,13 @@ public class ControlPhotosUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             PreviousPhoto();
+        }
+
+        // Check if the Space or E key is pressed
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E))
+        {
+            // Reload the current active scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
