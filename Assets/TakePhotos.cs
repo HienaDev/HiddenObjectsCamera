@@ -20,7 +20,7 @@ public class TakePhotos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)) && Time.time - justTookPhoto > photoCooldown)
+        if ((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Space)) && Time.time - justTookPhoto > photoCooldown && DifficultyManager.Instance.GameStarted)
         {
             justTookPhoto = Time.time;
             cameraPictureSound.pitch = Random.Range(0.9f, 1.1f);

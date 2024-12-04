@@ -33,6 +33,7 @@ public class InCameraCheck : MonoBehaviour
     [SerializeField] private GameObject smokeParticles;
     [SerializeField] private GameObject itemParticles;
     private GameObject itemParticlesClone;
+    private bool hasParticles = false;
 
     [Header("ANIMATION"), SerializeField] private float animationDuration = 10f;
     [SerializeField] private float maxTransparency = 0.5f;
@@ -53,7 +54,7 @@ public class InCameraCheck : MonoBehaviour
     void Start()
     {
 
-        itemParticlesClone = Instantiate(itemParticles, transform.position, Quaternion.identity);
+
 
         meshRenderer = GetComponentsInChildren<Renderer>();
 
@@ -93,7 +94,22 @@ public class InCameraCheck : MonoBehaviour
 
     private void Update()
     {
-        if (!completed)
+        if(!hasParticles && DifficultyManager.Instance.GameStarted)
+        {
+            Debug.Log("hi");
+            if (!DifficultyManager.Instance.isAnimated)
+            {
+                for (int i = 0; i < meshRenderer.Length; i++)
+                {
+
+                    meshRenderer[i].enabled = true;
+                }
+            }
+            itemParticlesClone = Instantiate(DifficultyManager.Instance.currParticle, transform.position, Quaternion.identity);
+            hasParticles = true;
+        }
+
+        if (!completed && DifficultyManager.Instance.GameStarted)
         {
             CheckIfInbounds();
         }
@@ -105,7 +121,7 @@ public class InCameraCheck : MonoBehaviour
 
         if ((!GeometryUtility.TestPlanesAABB(cameraFrustum, col.bounds)) || destroyed)
         {
-            if (wrongObject)
+            if (wrongObject && DifficultyManager.Instance.isAnimated)
             {
                 for (int i = 0; i < meshRenderer.Length; i++)
                 {
@@ -139,12 +155,16 @@ public class InCameraCheck : MonoBehaviour
 
                     if (wrongObject)
                     {
-                        for (int i = 0; i < meshRenderer.Length; i++)
+                        if (DifficultyManager.Instance.isAnimated)
                         {
-                            meshRenderer[i].enabled = true;
+                            for (int i = 0; i < meshRenderer.Length; i++)
+                            {
+                                meshRenderer[i].enabled = true;
+                            }
                         }
 
-                        if (!coroutineRunning)
+
+                        if (!coroutineRunning && DifficultyManager.Instance.isAnimated)
                         {
                             for (int i = 0; i < meshRenderer.Length; i++)
                             {
@@ -172,7 +192,7 @@ public class InCameraCheck : MonoBehaviour
                                 GameObject sound = Instantiate(collectSound, transform.position, Quaternion.identity);
                                 sound.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
 
-                                if (coroutineRunning)
+                                if (coroutineRunning && DifficultyManager.Instance.isAnimated)
                                 {
                                     StopCoroutine(coroutine);
                                     coroutineRunning = false;
@@ -241,13 +261,13 @@ public class InCameraCheck : MonoBehaviour
 
         coroutineRunning = true;
 
-        yield return new WaitForSeconds(initialDelayDuration);
+        yield return new WaitForSeconds(DifficultyManager.Instance.initalDelay);
 
         float lerpValue = 0;
 
         while (lerpValue <= maxTransparency)
         {
-            lerpValue += Time.deltaTime / animationDuration * maxTransparency;
+            lerpValue += Time.deltaTime / DifficultyManager.Instance.animationDuration * maxTransparency;
             for (int i = 0; i < meshRenderer.Length; i++)
             {
                 meshRenderer[i].material.color =

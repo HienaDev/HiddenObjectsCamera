@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1896891208729705023}
   - component: {fileID: 8894233145921085511}
   m_Layer: 0
-  m_Name: Particles
+  m_Name: ParticlesHard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -866,12 +866,12 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
