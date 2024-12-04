@@ -19,11 +19,14 @@ public class MenusManager : MonoBehaviour
     [SerializeField] private Button settingsButton;
     [SerializeField] private Button exitButton;
 
+    private AudioSource menuSound;
+
     private bool isPaused;
     private bool isTransitioning;
 
     private void Start()
     {
+        menuSound = GetComponent<AudioSource>();
         StopGame();
         isPaused = false;
         EnsureSelection();
@@ -38,6 +41,7 @@ public class MenusManager : MonoBehaviour
     {
         if (!isTransitioning)
         {
+            menuSound.Play();
             StartCoroutine(PhotoEffectCoroutine());
             isPaused = false;
         }
@@ -45,6 +49,7 @@ public class MenusManager : MonoBehaviour
 
     public void OnSettingsButtonClicked()
     {
+        menuSound.Play();
         ShowSettingsMenu();
     }
 
@@ -99,14 +104,17 @@ public class MenusManager : MonoBehaviour
             if (currentSelected == exitButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(settingsButton.gameObject);
+                menuSound.Play();
             }
             else if (currentSelected == settingsButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(difficultyButton.gameObject);
+                menuSound.Play();
             }
             else if (currentSelected == difficultyButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(playButton.gameObject);
+                menuSound.Play();
             }
 
         }
@@ -116,14 +124,17 @@ public class MenusManager : MonoBehaviour
             if (currentSelected == playButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(difficultyButton.gameObject);
+                menuSound.Play();
             }
             else if (currentSelected == difficultyButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(settingsButton.gameObject);
+                menuSound.Play();
             }
             else if (currentSelected == settingsButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(exitButton.gameObject);
+                menuSound.Play();
             }
         }
     }

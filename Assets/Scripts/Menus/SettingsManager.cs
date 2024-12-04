@@ -16,6 +16,8 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private Color normalColor = Color.white;
     [SerializeField] private Color selectedColor = Color.yellow;
 
+    [SerializeField] private AudioSource menuSound;
+
     private void Update()
     {
         EnsureSelection();
@@ -37,10 +39,12 @@ public class SettingsManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
+            menuSound.Play();
             NavigateToPrevious(currentSelected);
         }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
+            menuSound.Play();
             NavigateToNext(currentSelected);
         }
 

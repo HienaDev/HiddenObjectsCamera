@@ -38,6 +38,8 @@ public class DifficultyManager : MonoBehaviour
 
     [HideInInspector] public bool GameStarted = false;
 
+    [SerializeField] private AudioSource menuSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +61,7 @@ public class DifficultyManager : MonoBehaviour
     public void NextDifficulty()
     {
         difficultyIndex++;
+        menuSound.Play();
 
         if (difficultyIndex > 3)
         {
