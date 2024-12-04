@@ -108,25 +108,23 @@ public class MenusManager : MonoBehaviour
             }
             else if (currentSelected == settingsButton.gameObject)
             {
+                EventSystem.current.SetSelectedGameObject(playButton.gameObject);
+                menuSound.Play();
+            }
+            else if (currentSelected == playButton.gameObject)
+            {
                 EventSystem.current.SetSelectedGameObject(difficultyButton.gameObject);
                 menuSound.Play();
             }
-            else if (currentSelected == difficultyButton.gameObject)
+        }
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            if (currentSelected == difficultyButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(playButton.gameObject);
                 menuSound.Play();
             }
-
-        }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-
-            if (currentSelected == playButton.gameObject)
-            {
-                EventSystem.current.SetSelectedGameObject(difficultyButton.gameObject);
-                menuSound.Play();
-            }
-            else if (currentSelected == difficultyButton.gameObject)
+            else if (currentSelected == playButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(settingsButton.gameObject);
                 menuSound.Play();
