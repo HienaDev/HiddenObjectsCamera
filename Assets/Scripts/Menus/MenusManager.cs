@@ -12,11 +12,13 @@ public class MenusManager : MonoBehaviour
     [SerializeField] private Canvas inventoryCanvas;
     [SerializeField] private Canvas mainMenuCanvas;
     [SerializeField] private Canvas settingsCanvas;
+    [SerializeField] private Canvas creditsCanvas;
     [SerializeField] private SettingsManager settingsManager;
     [SerializeField] private Image photoEffect;
     [SerializeField] private Button playButton;
     [SerializeField] private Button difficultyButton;
     [SerializeField] private Button settingsButton;
+    [SerializeField] private Button creditsButton;
     [SerializeField] private Button exitButton;
 
     private AudioSource menuSound;
@@ -53,6 +55,12 @@ public class MenusManager : MonoBehaviour
         ShowSettingsMenu();
     }
 
+    public void OnCreditsButtonClicked()
+    {
+        menuSound.Play();
+        ShowCreditsMenu();
+    }
+
     private void EnsureSelection()
     {
         EventSystem.current.SetSelectedGameObject(null);
@@ -74,7 +82,7 @@ public class MenusManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (settingsCanvas.enabled)
+            if (settingsCanvas.enabled || creditsCanvas.enabled)
             {
                 ShowMainMenu();
             }
@@ -108,6 +116,11 @@ public class MenusManager : MonoBehaviour
             }
             else if (currentSelected == settingsButton.gameObject)
             {
+                EventSystem.current.SetSelectedGameObject(creditsButton.gameObject);
+                menuSound.Play();
+            }
+            else if (currentSelected == creditsButton.gameObject)
+            {
                 EventSystem.current.SetSelectedGameObject(playButton.gameObject);
                 menuSound.Play();
             }
@@ -130,6 +143,11 @@ public class MenusManager : MonoBehaviour
                 menuSound.Play();
             }
             else if (currentSelected == settingsButton.gameObject)
+            {
+                EventSystem.current.SetSelectedGameObject(creditsButton.gameObject);
+                menuSound.Play();
+            }
+            else if (currentSelected == creditsButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(exitButton.gameObject);
                 menuSound.Play();
@@ -207,9 +225,20 @@ public class MenusManager : MonoBehaviour
         settingsManager.SelectFirstElement();
     }
 
+    private void ShowCreditsMenu()
+    {
+        mainMenuCanvas.enabled = false;
+        creditsCanvas.enabled = true;
+
+        //settingsManager.gameObject.SetActive(true);
+        //settingsManager.enabled = true;
+        //settingsManager.SelectFirstElement();
+    }
+
     private void ShowMainMenu()
     {
         settingsCanvas.enabled = false;
+        creditsCanvas.enabled = false;
         mainMenuCanvas.enabled = true;
 
         settingsManager.enabled = false;
@@ -222,6 +251,7 @@ public class MenusManager : MonoBehaviour
     {
         playButton.interactable = false;
         settingsButton.interactable = false;
+        creditsButton.interactable = false;
         exitButton.interactable = false;
     }
 
@@ -229,6 +259,7 @@ public class MenusManager : MonoBehaviour
     {
         playButton.interactable = true;
         settingsButton.interactable = true;
+        creditsButton.interactable = true;
         exitButton.interactable = true;
     }
 
