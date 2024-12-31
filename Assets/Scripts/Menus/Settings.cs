@@ -7,13 +7,10 @@ using System.Linq;
 
 public class Settings : MonoBehaviour
 {
-    //[SerializeField] private AudioMixer audioMixer;
     [SerializeField] private TMP_Dropdown   _resolutionDropdown;
     [SerializeField] private Slider         _sensitivitySlider;
     [SerializeField] private MoveCamera     _cameraMovement;
-    /*[SerializeField] private AudioMixer     _playerAudioMixer;
-    [SerializeField] private AudioMixer     _roomAudioMixer;
-    [SerializeField] private AudioMixer     _uIAudioMixer;*/
+    [SerializeField] private AudioMixer     audioMixer;
 
     private Resolution[] _resolutions;
 
@@ -76,8 +73,6 @@ public class Settings : MonoBehaviour
 
     public void SetVolume(float volume)
     {
-        /*_playerAudioMixer.SetFloat("Volume", volume);
-        _roomAudioMixer.SetFloat("Volume", volume);
-        _uIAudioMixer.SetFloat("Volume", volume);*/
+        audioMixer.SetFloat("Volume", volume);
     }
 }

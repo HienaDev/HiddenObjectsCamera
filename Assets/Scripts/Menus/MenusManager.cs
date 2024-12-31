@@ -91,11 +91,6 @@ public class MenusManager : MonoBehaviour
                 StopGame();
                 isPaused = true;
             }
-            else
-            {
-                ReturnGame();
-                isPaused = false;
-            }
         }
 
         HandleNavigation();
@@ -109,24 +104,29 @@ public class MenusManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if (currentSelected == exitButton.gameObject)
+            if (currentSelected == playButton.gameObject)
             {
-                EventSystem.current.SetSelectedGameObject(settingsButton.gameObject);
+                EventSystem.current.SetSelectedGameObject(difficultyButton.gameObject);
                 menuSound.Play();
             }
-            else if (currentSelected == settingsButton.gameObject)
+            else if (currentSelected == difficultyButton.gameObject)
+            {
+                EventSystem.current.SetSelectedGameObject(exitButton.gameObject);
+                menuSound.Play();
+            }
+            else if (currentSelected == exitButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(creditsButton.gameObject);
                 menuSound.Play();
             }
             else if (currentSelected == creditsButton.gameObject)
             {
-                EventSystem.current.SetSelectedGameObject(playButton.gameObject);
+                EventSystem.current.SetSelectedGameObject(settingsButton.gameObject);
                 menuSound.Play();
             }
-            else if (currentSelected == playButton.gameObject)
+            else if (currentSelected == settingsButton.gameObject)
             {
-                EventSystem.current.SetSelectedGameObject(difficultyButton.gameObject);
+                EventSystem.current.SetSelectedGameObject(playButton.gameObject);
                 menuSound.Play();
             }
         }
@@ -150,6 +150,11 @@ public class MenusManager : MonoBehaviour
             else if (currentSelected == creditsButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(exitButton.gameObject);
+                menuSound.Play();
+            }
+            else if (currentSelected == exitButton.gameObject)
+            {
+                EventSystem.current.SetSelectedGameObject(difficultyButton.gameObject);
                 menuSound.Play();
             }
         }

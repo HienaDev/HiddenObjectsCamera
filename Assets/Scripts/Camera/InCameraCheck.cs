@@ -4,6 +4,7 @@ using System.Collections;
 using System.Runtime.CompilerServices;
 using System.Linq.Expressions;
 using Unity.VisualScripting;
+using UnityEngine.Audio;
 
 public class InCameraCheck : MonoBehaviour
 {
@@ -50,6 +51,8 @@ public class InCameraCheck : MonoBehaviour
 
     [SerializeField] private GameObject placeSound;
     [SerializeField] private GameObject collectSound;
+
+    [SerializeField] private AudioMixerGroup soundMixerGroup;
 
     void Start()
     {
@@ -190,7 +193,12 @@ public class InCameraCheck : MonoBehaviour
 
                                 Instantiate(smokeParticles, transform.position, Quaternion.identity);
                                 GameObject sound = Instantiate(collectSound, transform.position, Quaternion.identity);
-                                sound.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+                                AudioSource audioSource = sound.GetComponent<AudioSource>();
+                                if (audioSource != null)
+                                {
+                                    audioSource.outputAudioMixerGroup = soundMixerGroup;
+                                    audioSource.pitch = Random.Range(0.9f, 1.1f);
+                                }
 
                                 if (coroutineRunning && DifficultyManager.Instance.isAnimated)
                                 {
@@ -220,7 +228,12 @@ public class InCameraCheck : MonoBehaviour
                             destroyed = true;
                             Instantiate(smokeParticles, transform.position, Quaternion.identity);
                             GameObject sound = Instantiate(placeSound, transform.position, Quaternion.identity);
-                            sound.GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+                            AudioSource audioSource = sound.GetComponent<AudioSource>();
+                            if (audioSource != null)
+                            {
+                                audioSource.outputAudioMixerGroup = soundMixerGroup;
+                                audioSource.pitch = Random.Range(0.9f, 1.1f);
+                            }
                             Destroy(itemParticlesClone);
                             Destroy(gameObject, 0.1f);
                         }
