@@ -97,9 +97,21 @@ public class InCameraCheck : MonoBehaviour
 
     private void Update()
     {
+
+        if(!DifficultyManager.Instance.GameStarted)
+        {
+            hasParticles = false;
+        }
+
         if(!hasParticles && DifficultyManager.Instance.GameStarted)
         {
             Debug.Log("hi");
+
+            if(itemParticlesClone != null)
+            {
+                Destroy(itemParticlesClone);
+            }
+
             if (!DifficultyManager.Instance.isAnimated)
             {
                 for (int i = 0; i < meshRenderer.Length; i++)

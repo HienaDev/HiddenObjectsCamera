@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MenusManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class MenusManager : MonoBehaviour
     [SerializeField] private Canvas creditsCanvas;
     [SerializeField] private SettingsManager settingsManager;
     [SerializeField] private Image photoEffect;
+    [SerializeField] private Button restartButton;
     [SerializeField] private Button playButton;
     [SerializeField] private Button difficultyButton;
     [SerializeField] private Button settingsButton;
@@ -37,6 +39,7 @@ public class MenusManager : MonoBehaviour
     private void OnEnable()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void OnPlayButtonClicked()
@@ -47,6 +50,12 @@ public class MenusManager : MonoBehaviour
             StartCoroutine(PhotoEffectCoroutine());
             isPaused = false;
         }
+    }
+
+    public void OnRestartButtonClicked()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
     }
 
     public void OnSettingsButtonClicked()
@@ -104,7 +113,17 @@ public class MenusManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
-            if (currentSelected == playButton.gameObject)
+            if (currentSelected == playButton.gameObject && DifficultyManager.Instance.GameStartedBeggining)
+            {
+                EventSystem.current.SetSelectedGameObject(restartButton.gameObject);
+                menuSound.Play();
+            }
+            else if (currentSelected == restartButton.gameObject)
+            {
+                EventSystem.current.SetSelectedGameObject(difficultyButton.gameObject);
+                menuSound.Play();
+            }
+            else if (currentSelected == playButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(difficultyButton.gameObject);
                 menuSound.Play();
@@ -132,7 +151,17 @@ public class MenusManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            if (currentSelected == difficultyButton.gameObject)
+            if (currentSelected == difficultyButton.gameObject && DifficultyManager.Instance.GameStartedBeggining)
+            {
+                EventSystem.current.SetSelectedGameObject(restartButton.gameObject);
+                menuSound.Play();
+            }
+            else if (currentSelected == difficultyButton.gameObject)
+            {
+                EventSystem.current.SetSelectedGameObject(playButton.gameObject);
+                menuSound.Play();
+            }
+            else if (currentSelected == restartButton.gameObject)
             {
                 EventSystem.current.SetSelectedGameObject(playButton.gameObject);
                 menuSound.Play();
@@ -255,14 +284,18 @@ public class MenusManager : MonoBehaviour
     private void DisableButtons()
     {
         playButton.interactable = false;
+        restartButton.interactable = false;
+        difficultyButton.interactable = false;
         settingsButton.interactable = false;
         creditsButton.interactable = false;
         exitButton.interactable = false;
     }
-
+    //
     private void EnableButtons()
     {
         playButton.interactable = true;
+        restartButton.interactable = true;
+        difficultyButton.interactable = true;
         settingsButton.interactable = true;
         creditsButton.interactable = true;
         exitButton.interactable = true;

@@ -37,6 +37,9 @@ public class DifficultyManager : MonoBehaviour
     [HideInInspector] public static DifficultyManager Instance;
 
     [HideInInspector] public bool GameStarted = false;
+    [HideInInspector] public bool GameStartedBeggining = false;
+
+    [SerializeField] private GameObject restartButton;
 
     [SerializeField] private AudioSource menuSound;
 
@@ -55,6 +58,12 @@ public class DifficultyManager : MonoBehaviour
 
     public void StartGame()
     {
+        if(!GameStartedBeggining )
+        {
+            restartButton.SetActive(true);
+        }
+
+        GameStartedBeggining = true;
         GameStarted = true;
     }
 
@@ -62,6 +71,9 @@ public class DifficultyManager : MonoBehaviour
     {
         difficultyIndex++;
         menuSound.Play();
+
+        GameStarted = false;
+
 
         if (difficultyIndex > 3)
         {
